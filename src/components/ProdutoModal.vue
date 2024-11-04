@@ -94,8 +94,6 @@ export default {
     open(produto) {
     this.localProduto = { ...produto};
     
-    console.log("🚀 ~ open ~ this.localProduto:", this.localProduto)
-    console.log("🚀 ~ open ~ localProduto:", this.localProduto.precos);
     this.show = true; // Exibe o modal
     console.log("Modal deve estar aberto:", this.show);
     },

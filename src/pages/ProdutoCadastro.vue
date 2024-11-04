@@ -2,9 +2,11 @@
   <div class="container mt-5">
     <h2 v-if="produto">Editar Produto</h2>
     <h2 v-else>Cadastrar Novo Produto</h2>
+    <hr>
     <ProdutoForm 
       :produtoData="produto" 
       @produtoSalvo="irParaLista" 
+      @produtoExcluido="irParaLista"
     />
   </div>
 </template>
@@ -36,8 +38,10 @@ export default {
         this.produto = produtoComPrecos
       }
     },
-    irParaLista(produto) {
-      this.$router.push('/produto');
+    irParaLista() { 
+      if (this.$route.path !== '/produto') {
+        this.$router.push('/produto');
+      }
     }
   },
   mounted() {
